@@ -20,13 +20,16 @@ public class Main {
 
         PluginManagerUtil pmu = new PluginManagerUtil(pm);
 
-        Collection<SomePlugin> somePlugins = pmu.getPlugins(SomePlugin.class);
-        for(SomePlugin somePlugin : somePlugins){
-            PluginInformation information = pm.getPlugin(PluginInformation.class);
-            Collection<String> authors = information.getInformation(PluginInformation.Information.AUTHORS, somePlugin);
-            Collection<String> versions = information.getInformation(PluginInformation.Information.VERSION, somePlugin);
-
-            System.out.println(String.format("%s ;Version %s AuthoredBy %s", somePlugin.whoAmI(), getFirstOrDefault(versions), getFirstOrDefault(authors)));
+        Collection<Plugin> plugins = pmu.getPlugins();
+        System.out.println("Number of Plugins: " + plugins.size());
+        for(Plugin plugin : plugins){
+            if(plugin instanceof SomePlugin){
+                System.out.println(((SomePlugin) plugin).whoAmI());
+            }
+            else{
+                PluginInformation information = pm.getPlugin(PluginInformation.class);
+                System.out.println(information.getInformation(PluginInformation.Information.CLASSPATH_ORIGIN, plugin));
+            }
         }
     }
 
