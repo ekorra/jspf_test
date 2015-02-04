@@ -20,13 +20,6 @@ public class Main {
 
         PluginManagerUtil pmu = new PluginManagerUtil(pm);
 
-        Collection<Plugin> plugins = pmu.getPlugins();
-        for(Plugin plugin : plugins){
-            if(plugin instanceof SomePlugin){
-                System.out.println(((SomePlugin) plugin).whoAmI());
-            }
-        }
-
         Collection<SomePlugin> somePlugins = pmu.getPlugins(SomePlugin.class);
         for(SomePlugin somePlugin : somePlugins){
             PluginInformation information = pm.getPlugin(PluginInformation.class);
