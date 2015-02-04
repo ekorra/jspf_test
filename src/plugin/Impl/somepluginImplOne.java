@@ -1,13 +1,13 @@
-package tmp.pluginInterface.Impl;
+package plugin.Impl;
 
 import net.xeoh.plugins.base.annotations.PluginImplementation;
-import tmp.pluginInterface.ekoPlugin;
+import plugin.SomePlugin;
 
 /**
  * Created by eko on 10.12.2014.
  */
 @PluginImplementation
-public class ekopluginImplOne implements ekoPlugin {
+public class SomepluginImplOne implements SomePlugin {
     public String saySomething() {
         return "Something";
     }
