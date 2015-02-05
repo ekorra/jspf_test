@@ -1,8 +1,6 @@
-import net.xeoh.plugins.base.Plugin;
 import net.xeoh.plugins.base.PluginInformation;
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
-import net.xeoh.plugins.base.util.JSPFProperties;
 import net.xeoh.plugins.base.util.PluginManagerUtil;
 import pluginInterface.SomePlugin;
 
@@ -21,6 +19,7 @@ public class Main {
         PluginManagerUtil pmu = new PluginManagerUtil(pm);
 
         Collection<SomePlugin> somePlugins = pmu.getPlugins(SomePlugin.class);
+
         for(SomePlugin somePlugin : somePlugins){
             PluginInformation information = pm.getPlugin(PluginInformation.class);
             Collection<String> authors = information.getInformation(PluginInformation.Information.AUTHORS, somePlugin);
